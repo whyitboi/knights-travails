@@ -1,0 +1,21 @@
+{
+  "name": "knights-travails",
+  "version": "1.0.0",
+  "description": "A function knightMoves that shows the shortest possible way to get from one square to another by outputting all squares the knight (chess piece) will stop on along the way.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whyitboi/knights-travails.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/whyitboi/knights-travails/issues"
+  },
+  "homepage": "https://github.com/whyitboi/knights-travails#readme"
+}
