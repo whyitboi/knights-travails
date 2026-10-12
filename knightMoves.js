@@ -10,7 +10,6 @@ export function knightMoves(start, end) {
     [-2, 1],
     [-2, -1],
   ];
-  //  const path =[]
 
   function viableSquares(currentSquare) {
     const moves = [];
@@ -25,7 +24,7 @@ export function knightMoves(start, end) {
     return moves;
   }
 
-  function path() {
+  function findPaths() {
     //if (start === end) return;
     const queue = [[start]];
     while (queue.length > 0) {
@@ -33,12 +32,16 @@ export function knightMoves(start, end) {
       //set current to the last square in the path
       const currentSquare = path[path.length - 1];
 
-      if (currentSquare === end) return queue;
+      if (currentSquare[0] === end[0] && currentSquare[1] === end[1])
+        return path;
       else {
         for (const square of viableSquares(currentSquare)) {
           queue.push([...path, square]);
         }
       }
+      return path;
     }
   }
+
+  const paths = findPaths();
 }
