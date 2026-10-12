@@ -1,13 +1,26 @@
 export function knightMoves(start, end) {
-  for (let i = 0; i <= 7; i++) {
-    let jumps = ([(newX, newY)] = jumps.push([start[0] + 1, start[1] + 2]));
-  }
+  //create 8 defined jumps the knight can make
+  const jumps = [
+    [1, 2],
+    [1, -2],
+    [-1, 2],
+    [-1, -2],
+    [2, 1],
+    [2, -1],
+    [-2, 1],
+    [-2, -1],
+  ];
 
-  //   while (
-  //     start.includes((value) => {
-  //       if (value < 0 || value > 7) {
-  //         throw new Error("The values must be within 0-7 in [x,y] format");
-  //       }
-  //     })
-  //   )
+  function makeMoves(square) {
+    const moves = [];
+    for (const jump of jumps) {
+      const newX = square[0] + jump[0];
+      const newY = square[1] + jump[1];
+
+      if (newX >= 0 && newX <= 7 && newY >= 0 && newY <= 7) {
+        moves.push([newX, newY]);
+      }
+    }
+    return moves;
+  }
 }
