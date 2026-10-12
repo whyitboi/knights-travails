@@ -10,6 +10,14 @@ export function knightMoves(start, end) {
     [-2, 1],
     [-2, -1],
   ];
+  if (
+    !Number.isInteger(start[0]) ||
+    !Number.isInteger(start[1]) ||
+    !Number.isInteger(end[0]) ||
+    !Number.isInteger(end[1])
+  ) {
+    throw new Error("Start and End must be arrays of integers of length 2");
+  }
 
   function viableSquares(currentSquare) {
     const moves = [];
@@ -25,8 +33,10 @@ export function knightMoves(start, end) {
   }
 
   function findPaths() {
-    //if (start === end) return;
     const queue = [[start]];
+    //create a set to track already visted squares
+    const visited = new Set([`${start[0]}, ${start[1]}`]);
+
     while (queue.length > 0) {
       const path = queue.shift();
       //set current to the last square in the path
@@ -36,16 +46,15 @@ export function knightMoves(start, end) {
         return path;
       else {
         for (const square of viableSquares(currentSquare)) {
-          queue.push([...path, square]);
+          const key = `${square[0]}, ${square[1]}`;
+          if (!visited.has(key)) {
+            visited.add(key);
+            queue.push([...path, square]);
+          }
         }
       }
-      // return path;
     }
   }
 
-  const paths = findPaths();
-  console.log(`You made it in ${paths.length - 1} moves! Here's your path:`);
-  for (let i = 0; i < paths.length; i++) {
-    console.log(paths[i]);
-  }
+  return findPaths();
 }
