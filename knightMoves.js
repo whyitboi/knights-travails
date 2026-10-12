@@ -1,6 +1,6 @@
 export function knightMoves(start, end) {
   for (let i = 0; i <= 7; i++) {
-    let jumps = ([][(newX, newY)] = jumps.push([start[0] + 1, start[1] + 2]));
+    let jumps = ([(newX, newY)] = jumps.push([start[0] + 1, start[1] + 2]));
   }
 
   //   while (
