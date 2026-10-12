@@ -10,6 +10,7 @@ export function knightMoves(start, end) {
     [-2, 1],
     [-2, -1],
   ];
+  //  const path =[]
 
   function makeMoves(square) {
     const moves = [];
@@ -22,5 +23,15 @@ export function knightMoves(start, end) {
       }
     }
     return moves;
+  }
+
+  function path() {
+    if (start === end) return;
+    let queue = [];
+    queue.push(start);
+    while (queue.length > 0) {
+      let square = queue.shift();
+      if (queue[0] !== end) queue.push(makeMoves(square));
+    }
   }
 }
