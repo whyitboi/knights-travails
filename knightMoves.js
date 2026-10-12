@@ -19,6 +19,17 @@ export function knightMoves(start, end) {
     throw new Error(
       "Start and End must be arrays. Each with 2 integers. E.g [1,2]",
     );
+  } else if (
+    start[0] < 0 ||
+    start[0] > 7 ||
+    start[1] < 0 ||
+    start[1] > 7 ||
+    end[0] < 0 ||
+    end[0] > 7 ||
+    end[1] < 0 ||
+    end[1] > 7
+  ) {
+    throw new Error("Square must be between 0-7");
   }
 
   function viableSquares(currentSquare) {
@@ -29,8 +40,6 @@ export function knightMoves(start, end) {
 
       if (newX >= 0 && newX <= 7 && newY >= 0 && newY <= 7) {
         moves.push([newX, newY]);
-      } else {
-        throw new Error("Square must be between 0-7");
       }
     }
     return moves;
