@@ -39,9 +39,13 @@ export function knightMoves(start, end) {
           queue.push([...path, square]);
         }
       }
-      return path;
+      // return path;
     }
   }
 
   const paths = findPaths();
+  console.log(`You made it in ${paths.length - 1} moves! Here's your path:`);
+  for (let i = 0; i < paths.length; i++) {
+    console.log(paths[i]);
+  }
 }
